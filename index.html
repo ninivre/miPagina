@@ -1,364 +1,72 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio DC Comics & Curiosidades</title>
-    <!-- Fuente temática de estilo Cómics / Pop Art de Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <style>
-        /* Variables de color y tema DC Comics */
-        :root {
-            --dc-blue: #0476F2;
-            --dc-dark-blue: #021B38;
-            --dc-yellow: #FFD700;
-            --dc-red: #E61C24;
-            --dc-dark: #121212;
-            --dc-light: #F4F6F9;
-            --comic-border: 3px solid #000000;
-            --comic-shadow: 6px 6px 0px #000000;
-            --comic-shadow-hover: 9px 9px 0px #000000;
-        }
-
-        /* Estilos generales */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--dc-dark-blue);
-            background-image: radial-gradient(#083870 15%, transparent 16%), radial-gradient(#083870 15%, transparent 16%);
-            background-size: 30px 30px;
-            background-position: 0 0, 15px 15px;
-            color: #333333;
-            margin: 0;
-            padding: 20px 10px;
-            display: flex;
-            justify-content: center;
-        }
-
-        /* Contenedor Principal (Satisface la condición de NO abarcar toda la pantalla) */
-        .wrapper {
-            max-width: 900px;
-            width: 100%;
-            background-color: var(--dc-light);
-            border: var(--comic-border);
-            box-shadow: 12px 12px 0px rgba(0, 0, 0, 0.8);
-            border-radius: 12px;
-            overflow: hidden;
-        }
-
-        /* Modificación CSS 1: Encabezado con estética de Cómic */
-        header {
-            background-color: var(--dc-blue);
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            border-bottom: var(--comic-border);
-            position: relative;
-        }
-
-        header h1 {
-            font-family: 'Bangers', cursive;
-            font-size: 3rem;
-            letter-spacing: 2px;
-            color: var(--dc-yellow);
-            text-shadow: 3px 3px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000;
-            margin: 0 0 10px 0;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            font-weight: bold;
-            background: var(--dc-red);
-            display: inline-block;
-            padding: 6px 16px;
-            border: 2px solid #000;
-            box-shadow: 3px 3px 0px #000;
-            transform: rotate(-1deg);
-            margin: 0;
-        }
-
-        /* Modificación CSS 2: Navegación estilizada */
-        nav {
-            background-color: var(--dc-yellow);
-            border-bottom: var(--comic-border);
-            padding: 10px;
-        }
-
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        nav ul li a {
-            font-family: 'Bangers', cursive;
-            font-size: 1.3rem;
-            color: #000;
-            text-decoration: none;
-            padding: 6px 14px;
-            background-color: white;
-            border: 2px solid #000;
-            box-shadow: 3px 3px 0px #000;
-            border-radius: 6px;
-            transition: all 0.2s ease;
-            display: inline-block;
-        }
-
-        nav ul li a:hover {
-            background-color: var(--dc-red);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 5px 5px 0px #000;
-        }
-
-        /* Secciones del Layout */
-        main {
-            padding: 25px;
-        }
-
-        section {
-            margin-bottom: 35px;
-        }
-
-        h2 {
-            font-family: 'Bangers', cursive;
-            font-size: 2.2rem;
-            color: var(--dc-dark-blue);
-            border-bottom: 3px solid var(--dc-red);
-            padding-bottom: 5px;
-            margin-top: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Modificación CSS 3: Tarjetas de Contenido (Perfil, Curiosidades y Guía) */
-        .card {
-            background-color: #ffffff;
-            border: var(--comic-border);
-            box-shadow: var(--comic-shadow);
-            border-radius: 8px;
-            padding: 20px;
-            margin-top: 15px;
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--comic-shadow-hover);
-        }
-
-        /* Estilo específico para perfil */
-        .profile-container {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .profile-img {
-            width: 130px;
-            height: 130px;
-            border-radius: 50%;
-            border: 3px solid #000;
-            box-shadow: 4px 4px 0px var(--dc-blue);
-            object-fit: cover;
-        }
-
-        /* Grid de curiosidades */
-        .grid-curiosidades {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-        }
-
-        .hero-tag {
-            font-family: 'Bangers', cursive;
-            display: inline-block;
-            padding: 3px 10px;
-            border: 2px solid #000;
-            border-radius: 4px;
-            color: white;
-            font-size: 1.1rem;
-            margin-bottom: 8px;
-        }
-
-        .batman { background-color: #333333; }
-        .superman { background-color: var(--dc-red); }
-        .wonderwoman { background-color: #D4AF37; color: #000; }
-        .flash { background-color: #C0392B; }
-
-        /* Lista destacada para entrega de trabajo */
-        .instructions-list {
-            background-color: #FFF9C4;
-            border-left: 6px solid var(--dc-yellow);
-            padding: 15px 15px 15px 35px;
-            border: 2px solid #000;
-            box-shadow: 4px 4px 0px #000;
-            border-radius: 6px;
-        }
-
-        .instructions-list li {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-
-        .badge-code {
-            background-color: var(--dc-dark-blue);
-            color: #56B6C2;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-family: monospace;
-            font-size: 0.9rem;
-            border: 1px solid #000;
-        }
-
-        /* Modificación CSS 4: Footer con estilo Pop-Art */
-        footer {
-            background-color: var(--dc-dark);
-            color: white;
-            text-align: center;
-            padding: 20px;
-            border-top: var(--comic-border);
-            font-size: 0.9rem;
-        }
-
-        footer strong {
-            color: var(--dc-yellow);
-        }
-
-        /* Responsive */
-        @media (max-width: 600px) {
-            header h1 { font-size: 2.2rem; }
-            .profile-container { flex-direction: column; text-align: center; }
-            nav ul { flex-direction: column; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DC Comics Data Hub | Cristóbal Acuña</title>
+  <!-- Fuente tipográfica estilo cómic -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Enlace al archivo CSS externo -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- Contenedor principal con ancho delimitado (max-width: 900px) -->
-    <div class="wrapper">
+  <div class="contenedor-principal">
+    
+    <header class="encabezado">
+      <span class="insignia-dc">DC DATA CORE</span>
+      <h1>PORTAFOLIO DE DATOS & CURIOSIDADES DC</h1>
+      <p class="autor">Desarrollado por <strong>Cristóbal Acuña</strong> | Estudiante de Ing. en Realidad Virtual</p>
+    </header>
 
-        <!-- ETIQUETA 1: <header> -->
-        <header>
-            <!-- ETIQUETA 2: <h1> -->
-            <h1>DC DATOS & CURIOSIDADES</h1>
-            <!-- ETIQUETA 3: <p> -->
-            <p>Portafolio Académico de Evaluación 1</p>
-        </header>
+    <nav class="navegacion">
+      <ul>
+        <li><a href="#datos">Datos Curiosos</a></li>
+        <li><a href="#stats">Estadísticas DC</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </nav>
 
-        <!-- ETIQUETA 4: <nav> -->
-        <nav>
-            <!-- ETIQUETA 5: <ul> -->
-            <ul>
-                <!-- ETIQUETA 6: <li> & ETIQUETA 7: <a> -->
-                <li><a href="#presentacion">Presentación</a></li>
-                <li><a href="#curiosidades">Curiosidades DC</a></li>
-                <li><a href="#entrega">Guía de Entrega</a></li>
-            </ul>
-        </nav>
+    <main>
+      
+      <section id="datos" class="seccion-bloque">
+        <h2>Curiosidades del Multiverso DC</h2>
+        
+        <article class="tarjeta-dato">
+          <h3>1. Superman no siempre voló</h3>
+          <p>En sus inicios en 1938, Superman solo podía dar grandes saltos de hasta 1/8 de milla[cite: 1, 2, 3]. El poder de volar fue introducido en las series animadas de 1940 para simplificar el trabajo de animación[cite: 1, 2, 3].</p>
+        </article>
 
-        <!-- ETIQUETA 8: <main> -->
-        <main>
-            <!-- ETIQUETA 9: <section> -->
-            <section id="presentacion">
-                <!-- ETIQUETA 10: <h2> -->
-                <h2>Portafolio del Alumno</h2>
-                
-                <!-- ETIQUETA 11: <article> -->
-                <article class="card profile-container">
-                    <!-- ETIQUETA 12: <figure> & ETIQUETA 13: <img> -->
-                    <figure style="margin: 0;">
-                        <img class="profile-img" src="https://placehold.co/150x150/021B38/FFD700?text=DC+Student" alt="Foto de Perfil Alumno" onerror="this.src='https://via.placeholder.com/150'">
-                    </figure>
-                    <div>
-                        <p><strong>Alumno:</strong> [Inserta Tu Nombre Aquí]</p>
-                        <p><strong>Carrera:</strong> Ingeniería / Desarrollo Web</p>
-                        <p><strong>Sección:</strong> [Tu Sección]</p>
-                        <p><em>"Bienvenido a mi portafolio temático sobre datos curiosos del Universo de DC Comics, desarrollado para demostrar el uso de etiquetas semanticamente correctas y estilos personalizados en CSS."</em></p>
-                    </div>
-                </article>
-            </section>
+        <article class="tarjeta-dato">
+          <h3>2. El origen de la Kriptonita</h3>
+          <p>La Kriptonita no nació en los cómics, sino en el programa de radio <em>The Adventures of Superman</em> en 1943[cite: 1, 2, 3]. Se creó para darle unas vacaciones al actor de voz del superhéroe[cite: 1, 2, 3].</p>
+        </article>
+      </section>
 
-            <section id="curiosidades">
-                <h2>Curiosidades del Universo DC</h2>
-                
-                <div class="grid-curiosidades">
-                    <article class="card">
-                        <!-- ETIQUETA 14: <span> -->
-                        <span class="hero-tag batman">BATMAN</span>
-                        <h3>El origen de Bruce Wayne</h3>
-                        <p>Batman debutó en <strong>Detective Comics #27</strong> en mayo de 1939. A diferencia de la mayoría de los superhéroes, Batman no posee ningún superpoder físico; confía en su intelecto, artes marciales y tecnología.</p>
-                    </article>
+      <section id="stats" class="seccion-bloque">
+        <h2>Registro de Datos de Héroes</h2>
+        <ul class="lista-metricas">
+          <li><strong>Batmóvil:</strong> Más de 20 rediseños oficiales en el cine y la televisión[cite: 1, 2, 3].</li>
+          <li><strong>Flash (Barry Allen):</strong> Capaz de superar la velocidad de la luz y romper la barrera del tiempo[cite: 1, 2, 3].</li>
+          <li><strong>Linterna Verde:</strong> La debilidad original del anillo era el color amarillo e imperfecciones de la madera[cite: 1, 2, 3].</li>
+        </ul>
+      </section>
 
-                    <article class="card">
-                        <span class="hero-tag superman">SUPERMAN</span>
-                        <h3>Kryptonita Rosa</h3>
-                        <p>Además de la conocida kryptonita verde que debilita a Superman, existen variantes extrañas como la <strong>Kryptonita Rosa</strong>, introducida en los cómics de 2003 de forma satírica.</p>
-                    </article>
+      <aside class="nota-vr">
+        <h2>Visión RV</h2>
+        <p>Integrando conceptos de análisis de datos y entornos inmersivos 3D para la visualización de cómics e historias interactivas[cite: 1, 2, 3].</p>
+      </aside>
 
-                    <article class="card">
-                        <span class="hero-tag wonderwoman">WONDER WOMAN</span>
-                        <h3>Creador del Polígrafo</h3>
-                        <p>Wonder Woman fue creada por <strong>William Moulton Marston</strong>, un psicólogo que también inventó el test de presión arterial sistólica, fundamental para el desarrollo del detector de mentiras (polígrafo).</p>
-                    </article>
+    </main>
 
-                    <article class="card">
-                        <span class="hero-tag flash">THE FLASH</span>
-                        <h3>Más rápido que la luz</h3>
-                        <p>Flash (Barry Allen) puede correr tan rápido que es capaz de atravesar la materia sólida haciendo vibrar sus moléculas y romper la barrera del tiempo via la <em>Speed Force</em>.</p>
-                    </article>
-                </div>
-            </section>
+    <footer id="contacto" class="pie-pagina">
+      <p>&copy; 2026 Cristóbal Acuña - Ingeniería en Realidad Virtual[cite: 1, 2, 3].</p>
+      <button onclick="alert('¡Conexión exitosa con la red de DC!')">Conectar con el Sistema</button>
+    </footer>
 
-            <section id="entrega">
-                <h2>Pasos para la Entrega de la Evaluación</h2>
-                <!-- ETIQUETA 15: <aside> -->
-                <aside class="card">
-                    <p>Para asegurar la máxima calificación según la rúbrica de evaluación, se deben seguir minuciosamente las siguientes instrucciones:</p>
-                    
-                    <!-- ETIQUETA 16: <ol> -->
-                    <ol class="instructions-list">
-                        <li>
-                            <!-- ETIQUETA 17: <strong> -->
-                            <strong>Punto 3 - Despliegue en Línea (25 pts):</strong>
-                            Subir todo el código a un repositorio público de <strong>GitHub</strong> y activar <em>GitHub Pages</em> para que la página quede funcional en línea.
-                        </li>
-                        <li>
-                            <strong>Punto 4 - Envío y Asunto (25 pts):</strong>
-                            Enviar el correo a tiempo usando la dirección institucional al profesor:
-                            <br>
-                            <!-- ETIQUETA 18: <button> -->
-                            <a href="mailto:cllanquinao@docente.ubo.cl" style="text-decoration: none;">
-                                <button style="margin-top:8px; cursor:pointer; background:var(--dc-red); color:white; border:2px solid #000; padding:6px 12px; font-weight:bold; border-radius:4px;">
-                                    Enviar Correo a cllanquinao@docente.ubo.cl
-                                </button>
-                            </a>
-                        </li>
-                        <li>
-                            <strong>Formato Estricto de Asunto:</strong>
-                            <br>
-                            <span class="badge-code">[Nombre Alumno] [Sección] - evaluación 1</span>
-                        </li>
-                        <li>
-                            <strong>Cuerpo del Correo:</strong>
-                            Incluir el enlace directo a la página desplegada (GitHub Pages) y la URL del repositorio de GitHub.
-                        </li>
-                    </ol>
-                </aside>
-            </section>
-        </main>
+  </div>
 
-        <!-- ETIQUETA 19: <footer> -->
-        <footer>
-            <p>Portafolio DC Comics &copy; 2026 - Diseñado para Evaluación Web</p>
-            <p>Docente a entregar: <strong>cllanquinao@docente.ubo.cl</strong></p>
-        </footer>
-
-    </div>
+</body>
+</html>
