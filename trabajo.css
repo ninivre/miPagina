@@ -179,3 +179,19 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+.boton-github {
+  display: inline-block;
+  font-family: 'Bangers', cursive;
+  font-size: 1.1rem;
+  background-color: #d90429;
+  color: #ffffff;
+  border: 2px solid #000000;
+  padding: 8px 18px;
+  text-decoration: none;
+  box-shadow: 3px 3px 0px #000000;
+  transition: background-color 0.2s ease;
+}
+
+.boton-github:hover {
+  background-color: #0056b3;
+}
